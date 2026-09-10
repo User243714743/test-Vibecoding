@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas Quiz — Culture générale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <nav><a class="brand" href="#" onclick="location.reload()">ATLAS<span>QUIZ</span></a><button class="leaderboard-link" data-screen="scores">Classement <span>↗</span></button></nav>
+
+    <section id="home" class="screen active home">
+      <div class="eyebrow">ÉDITION QUOTIDIENNE <i></i> 10 SEPT. 2026</div>
+      <h1>La culture,<br><em>en jeu.</em></h1>
+      <p class="intro">Vingt questions pour voyager entre les époques, les continents et les idées. À vous de jouer.</p>
+      <div class="difficulty-wrap">
+        <p class="section-label">CHOISISSEZ VOTRE PARCOURS</p>
+        <div class="difficulty-grid" id="difficulty-grid">
+          <button class="difficulty-card selected" data-difficulty="1"><span class="level-no">01</span><strong>Éclaireur</strong><small>Pour se mettre en jambes</small><b>2 CHOIX</b></button>
+          <button class="difficulty-card" data-difficulty="2"><span class="level-no">02</span><strong>Explorateur</strong><small>Le juste équilibre</small><b>3 CHOIX</b></button>
+          <button class="difficulty-card" data-difficulty="3"><span class="level-no">03</span><strong>Connaisseur</strong><small>Pour les esprits curieux</small><b>4 CHOIX</b></button>
+        </div>
+      </div>
+      <button id="start-btn" class="primary-button">Commencer le voyage <span>→</span></button>
+      <div class="home-foot"><span>20 QUESTIONS</span><i></i><span>1 000 POINTS À DÉCROCHER</span></div>
+    </section>
+
+    <section id="quiz" class="screen quiz-screen">
+      <div class="quiz-top"><div><span id="question-count">QUESTION 01 / 20</span><div class="progress"><i id="progress-bar"></i></div></div><div class="score-live"><small>SCORE</small><b id="live-score">000</b></div></div>
+      <div class="category-line"><span id="category">HISTOIRE</span><span id="coefficient">COEF. 25</span></div>
+      <h2 id="question-text"></h2>
+      <div id="answers" class="answers"></div>
+      <p class="question-note">Chaque réponse juste ajoute le coefficient indiqué à votre score.</p>
+    </section>
+
+    <section id="result" class="screen result-screen">
+      <div class="eyebrow">PARCOURS TERMINÉ <i></i> BRAVO</div>
+      <div class="result-score"><span>VOTRE SCORE</span><strong id="final-score">000</strong><small>points sur <b id="max-score">000</b></small></div>
+      <h2 id="result-title">Belle traversée.</h2><p id="result-copy"></p>
+      <div class="result-actions"><button class="primary-button" id="save-score">Enregistrer mon score <span>→</span></button><button class="secondary-button" data-screen="scores">Voir le classement</button></div>
+      <button class="text-button" onclick="location.reload()">↻ Rejouer une partie</button>
+    </section>
+
+    <section id="scores" class="screen score-screen">
+      <button class="back-button" data-screen="home">← Retour au départ</button>
+      <div class="eyebrow">TABLEAU D'HONNEUR <i></i> AUJOURD'HUI</div>
+      <h1>Les esprits<br><em>les plus vifs.</em></h1>
+      <div class="podium" id="podium"></div>
+      <div class="ranking"><div class="ranking-head"><span>RANG</span><span>JOUEUR</span><span>SCORE</span></div><div id="ranking-list"></div></div>
+      <p class="ranking-note">Les scores sont actualisés chaque jour à minuit.</p>
+    </section>
+  </main>
+  <div id="name-modal" class="modal" aria-hidden="true"><div class="modal-card"><button class="close-modal" aria-label="Fermer">×</button><p class="section-label">INSCRIVEZ VOTRE NOM</p><h2>Votre place vous attend.</h2><input id="player-name" maxlength="16" placeholder="Votre prénom" autofocus><button class="primary-button" id="confirm-score">Valider mon score <span>→</span></button></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
